@@ -1,0 +1,112 @@
+[tool.poetry]
+name = "Fashion items categorization and captioning"
+version = "0.1.0"
+description = "API for trained model"
+authors = ["Agne Gestautaite"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.9.*"
+pandas = "^1.5.2"
+fastapi = "^0.88.0"
+cloudpickle = "^2.2.0"
+pydantic = "^1.10.2"
+scikit-learn = "^1.2.0"
+nltk = "^3.8.1"
+pyarrow = "^10.0.1"
+matplotlib = "^3.6.3"
+mariadb = "^1.1.5.post3"
+seaborn = "^0.12.2"
+eli5 = "^0.13.0"
+python-dotenv = "^0.21.1"
+sklearn-pandas = "^2.2.0"
+uvicorn = "^0.20.0"
+wordcloud = "^1.8.2.2"
+detectlanguage = "^1.5.0"
+langdetect = "^1.0.9"
+xgboost = "^1.7.3"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.991"
+flake8 = "^6.0.0"
+isort = "^5.11.4"
+black = "^22.12.0"
+pycln = "^2.1.2"
+flake8-pyproject = "^1.2.2"
+jupyterlab = "^3.5.2"
+ipykernel = "^6.19.4"
+nbqa = "^1.6.0"
+pre-commit = "^2.21.0"
+gunicorn = "^20.1.0"
+uvicorn = "^0.20.0"
+wordcloud = "^1.8.2.2"
+eli5 = "^0.13.0"
+seaborn = "^0.12.2"
+
+[tool.pycln]
+all = true
+
+[tool.flake8]
+exclude = ['.git', '__pycache__', '.venv']
+max_line_length = 99
+max_doc_length = 79
+max-complexity = 18
+
+[tool.black]
+line-length = 99
+include = '/project$|\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.eggs
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 99
+
+[tool.mypy]
+files = "src/**/*.py"
+warn_unused_configs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_redundant_casts = true
+strict_equality = true
+
+module = [
+    "PIL.*",
+    "plotly.*",
+    "pandas.*",
+    "numpy.*",
+    "pyspark.*",
+    "sklearn.*",
+    "scipy.*",
+    "cloudpickle.*",
+    "vintools.*",
+    "seaborn.*",
+    "matplotlib.*",
+]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
